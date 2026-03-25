@@ -1,0 +1,26 @@
+mixed-port: 7890
+mode: global
+
+proxies:
+  - name: "feedogo-vless"
+    type: vless
+    server: 35.212.143.42
+    port: 58080
+    uuid: 1c42ebae-52dc-4dd8-aec3-f5391a6d56e8
+    network: tcp
+    tls: true
+    udp: true
+    flow: xtls-rprx-vision
+    servername: apple.com
+    reality-opts:
+      public-key: rJN4kIEs6ZgQO7FPq5SGUjUxNOIeoE0Ot4dBT6_wJBA
+      short-id: 6d2829a4
+
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    proxies:
+      - "feedogo-vless"
+
+rules:
+  - MATCH,Proxy
